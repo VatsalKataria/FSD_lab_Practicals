@@ -1,8 +1,13 @@
-const print = () => {
-    const var1 = () => {
-        console.log("Hello World");
-    }
-    return var1;
-};
+const http = require('http');
 
-export default print;
+const server = http.createServer((req, res) =>{
+    res.writeHead(200, {'Content-Type': 'text/plain'});
+    res.write('Hello World');
+    res.end();
+});
+
+const port_no = 3000;
+
+server.listen(port_no, () =>{
+    console.log('Server is running on port '+ port_no);
+});
